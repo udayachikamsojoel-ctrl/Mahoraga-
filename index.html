@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOECHOO Anime Debate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="lockedScreen" class="locked hidden">
+    <div class="locked-box">
+      <h1>SON😭😹</h1>
+    </div>
+  </div>
+
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <div class="logo">
+        <div class="logo-mark">J</div>
+        <div class="logo-text">
+          <span class="brand">JOECHOO</span>
+          <span class="tag">Anime Debate Arena</span>
+        </div>
+      </div>
+      <div class="top-actions">
+        <a class="nav-btn" href="#debate">Join Debate</a>
+        <button class="ghost" onclick="unlockAdmin()">Admin Access</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <section class="side-card">
+          <h3>Trending Characters</h3>
+          <ul>
+            <li>Gojo Satoru</li>
+            <li>Luffy</li>
+            <li>Levi Ackerman</li>
+            <li>Itachi Uchiha</li>
+            <li>Light Yagami</li>
+          </ul>
+        </section>
+
+        <section class="side-card neon">
+          <h3>Top Fights</h3>
+          <p>Best battle this week, strongest villain, smartest MC, and more.</p>
+        </section>
+
+        <section class="side-card">
+          <h3>Rules</h3>
+          <p>Respect the fans. Debate hard, but keep it clean.</p>
+        </section>
+      </aside>
+
+      <main class="content">
+        <section class="hero" id="home">
+          <div class="hero-text">
+            <p class="eyebrow">Anime · Thoughts · Polls</p>
+            <h1>Talk about anime characters, share opinions, and join admin-made polls.</h1>
+            <p class="subtext">A neon anime community page where fans debate respectfully and new comments appear every minute.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#polls">See Polls</a>
+              <a class="btn secondary" href="#debate">Post Thoughts</a>
+            </div>
+          </div>
+
+          <div class="hero-card neon-card">
+            <h2>Tonight's Mood</h2>
+            <p>Black, neon, and loud like a peak anime episode.</p>
+            <div class="status-grid">
+              <div><strong>Live</strong><span>Debates</span></div>
+              <div><strong>1m</strong><span>Updates</span></div>
+              <div><strong>Admin</strong><span>Locked</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="polls">
+          <div class="section-head">
+            <h2>Current Polls</h2>
+            <span>Vote and see what the community thinks</span>
+          </div>
+
+          <div class="grid">
+            <article class="card glow">
+              <h3>Best anime character?</h3>
+              <p>Vote for the character you think is the most iconic.</p>
+              <button onclick="voteAlert()">Vote Now</button>
+            </article>
+
+            <article class="card glow">
+              <h3>Best anime villain?</h3>
+              <p>Choose the villain that had the biggest impact.</p>
+              <button onclick="voteAlert()">Vote Now</button>
+            </article>
+
+            <article class="card glow">
+              <h3>Best power system?</h3>
+              <p>Pick the power system you think is the coolest.</p>
+              <button onclick="voteAlert()">Vote Now</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split" id="debate">
+          <div class="card big glow">
+            <h2>Share Your Thoughts</h2>
+            <form onsubmit="postThought(event)">
+              <label for="anime">Anime Character</label>
+              <input id="anime" type="text" placeholder="Type a character name" required>
+
+              <label for="thought">Your Opinion</label>
+              <textarea id="thought" rows="6" placeholder="Write what you think..." required></textarea>
+
+              <label>Choose your side</label>
+              <div class="choices">
+                <label><input type="radio" name="side" value="Pro" checked> Pro</label>
+                <label><input type="radio" name="side" value="Con"> Con</label>
+                <label><input type="radio" name="side" value="Neutral"> Neutral</label>
+              </div>
+
+              <label class="check">
+                <input type="checkbox" id="agree">
+                I agree to keep the debate respectful
+              </label>
+
+              <button type="submit">Submit Thought</button>
+            </form>
+          </div>
+
+          <div class="card big glow" id="admin">
+            <h2>Admin Panel</h2>
+            <p>This area is locked. Enter the password to access the poll tools.</p>
+
+            <button onclick="unlockAdmin()">Open Admin Panel</button>
+
+            <div id="adminPanel" class="admin-panel hidden">
+              <form onsubmit="createPoll(event)">
+                <label for="polltitle">Poll Title</label>
+                <input id="polltitle" type="text" placeholder="Example: Best anime hero?" required>
+
+                <label for="polloptions">Poll Options</label>
+                <textarea id="polloptions" rows="5" placeholder="Enter one option per line" required></textarea>
+
+                <button type="submit">Create Poll</button>
+              </form>
+
+              <p class="admin-note">Admin power: create debates, start polls, and guide the discussion.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Live Comments</h2>
+            <span id="clockText">Updated every minute</span>
+          </div>
+          <div id="commentList" class="thought-list"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

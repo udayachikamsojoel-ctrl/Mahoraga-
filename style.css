@@ -1,0 +1,372 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #050510;
+  --panel: #11111f;
+  --panel2: #15152a;
+  --text: #f7f7ff;
+  --muted: #b8b8d8;
+  --neon1: #7c3aed;
+  --neon2: #00e5ff;
+  --neon3: #ff4fd8;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(124, 58, 237, 0.25), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(0, 229, 255, 0.14), transparent 25%),
+    var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input, textarea {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #2a2a3d;
+  background: #0f1020;
+  color: #fff;
+}
+
+label {
+  font-weight: 700;
+  color: #e5e7eb;
+}
+
+button, .btn, .nav-btn, .ghost {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover, .btn:hover, .nav-btn:hover, .ghost:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.2);
+}
+
+button, .primary, .nav-btn {
+  background: linear-gradient(135deg, var(--neon2), var(--neon3));
+  color: #000;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(0, 229, 255, 0.35);
+}
+
+.secondary {
+  background: #1f1f2d;
+  color: #ffffff;
+  border: 1px solid #333;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(5, 5, 16, 0.92);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.45);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.15);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #fff, #777);
+  color: #000;
+  font-weight: 900;
+  font-size: 1.2rem;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.4);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.tag {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sidebar {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.side-card, .hero-card, .card, .thought-card, .locked-box {
+  background: linear-gradient(180deg, rgba(17, 17, 31, 0.98), rgba(12, 12, 24, 0.98));
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.06);
+  min-width: 0;
+}
+
+.side-card ul {
+  list-style: none;
+  margin-top: 12px;
+  color: #d1d5db;
+  line-height: 1.8;
+}
+
+.side-card.neon {
+  border-color: rgba(255, 79, 216, 0.25);
+  box-shadow: 0 0 20px rgba(255, 79, 216, 0.08);
+}
+
+.content {
+  min-width: 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  padding: 10px 0 30px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.05;
+  margin-bottom: 16px;
+  color: white;
+  text-shadow: 0 0 14px rgba(124, 58, 237, 0.35);
+}
+
+.eyebrow {
+  color: var(--neon2);
+  margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.subtext {
+  max-width: 560px;
+  font-size: 1.05rem;
+  color: #cfcfe0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.neon-card {
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.status-grid div {
+  text-align: center;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.status-grid span {
+  display: block;
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+.section {
+  padding: 10px 0 40px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.section-head span {
+  color: var(--muted);
+}
+
+.section h2 {
+  color: white;
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.glow {
+  box-shadow: 0 0 22px rgba(0, 229, 255, 0.08);
+}
+
+.card p, .thought-card p, .admin-note {
+  color: #cfd3e0;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.choices {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 8px 0 14px;
+}
+
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.check input {
+  width: auto;
+  margin: 0;
+}
+
+.thought-list {
+  display: grid;
+  gap: 16px;
+}
+
+.thought-card span {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--neon3);
+}
+
+.comments-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#clockText {
+  color: var(--neon2);
+}
+
+.admin-panel {
+  margin-top: 18px;
+}
+
+.locked {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: grid;
+  place-items: center;
+  z-index: 999;
+}
+
+.locked-box {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  border-color: #fff;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero, .grid, .split, .sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+}
